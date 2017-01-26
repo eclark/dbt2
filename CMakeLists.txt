@@ -124,7 +124,7 @@ ELSEIF (DBMS STREQUAL "sqlite")
                 SQLITE_CFLAGS OUTPUT_STRIP_TRAILING_WHITESPACE)
         EXECUTE_PROCESS(COMMAND ${PKG_CONFIG} --libs sqlite3 OUTPUT_VARIABLE
                 DB_LIBS OUTPUT_STRIP_TRAILING_WHITESPACE)
-        SET(DBCFLAGS "-DLIBSQLITE ${SQLITE_CFLAGS}")
+        SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DLIBSQLITE ${SQLITE_CFLAGS}")
         SET(DB_SCRIPTS bin/sqlite/dbt2-sqlite-build-db
                 bin/sqlite/dbt2-sqlite-plans bin/sqlite/dbt2-sqlite-start-db
                 bin/sqlite/dbt2-sqlite-stop-db)
